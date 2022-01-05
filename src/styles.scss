@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  color: #333;
+}
+h2 {
+  text-align: center;
+}
+.content {
+  min-height: calc(100vh - 300px);
+  height: 100%;
+}
+.footer {
+  height: 300px;
+}

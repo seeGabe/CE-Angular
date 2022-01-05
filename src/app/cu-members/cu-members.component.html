@@ -1,0 +1,23 @@
+<div
+  class="row justify-content-around"
+  [style]="{
+    'background-image': 'url(/assets/computer-banner.jpg)',
+    'background-size': 'cover'
+  }"
+>
+  <ul class="list-group col-md-6 mt-5 mb-5">
+    <li class="list-group-item" *ngFor="let user of userData">
+      <img
+        src="{{ user['avatar_url'] }}"
+        [style]="{ width: '180px', float: 'left', margin: '0 1rem' }"
+      />
+      <h4>{{ user["login"] }}</h4>
+      <p-button
+        styleClass="p-button-info p-button-raised p-button-rounded"
+        (onClick)="getEventsData(user['login'])"
+      >
+        Activity
+      </p-button>
+    </li>
+  </ul>
+</div>

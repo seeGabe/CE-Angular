@@ -1,0 +1,47 @@
+<div
+  class="row"
+  [style]="{
+    'background-image': 'url(/assets/code-editor.jpeg)',
+    'background-size': 'cover'
+  }"
+>
+  <div class="col-lg-4 col-md-6" *ngFor="let repo of repoData">
+    <p-card
+      header="{{ repo['name'] }}"
+      subheader="{{ repo['full_name'] }}"
+      [style]="{ minHeight: '360px', height: 'auto' }"
+      styleClass="p-card-shadow"
+    >
+      <p>
+        {{ repo["description"] }}
+      </p>
+      <ng-template pTemplate="footer">
+        <div class="row">
+          <p-button
+            label="Users"
+            icon="pi pi-users"
+            styleClass="p-button-secondary p-button-raised p-button-rounded"
+            class="p-button-raised p-button-rounded col-auto"
+            (onClick)="showGraphModal(repo['name'])"
+          ></p-button>
+          <p-button
+            label="Events"
+            icon="pi pi-list"
+            styleClass="p-button-warning p-button-raised p-button-rounded"
+            class="col-auto"
+            (onClick)="showListModal(repo['name'])"
+          ></p-button>
+          <!-- Force next column to break to new line -->
+          <div class="w-100"></div>
+          <p-button
+            label="Commits over Time"
+            icon="pi pi-database"
+            styleClass="p-button-info p-button-raised p-button-rounded"
+            class="col"
+            (onClick)="showChartModal(repo['name'])"
+          ></p-button>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+</div>

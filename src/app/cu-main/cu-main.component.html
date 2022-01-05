@@ -1,0 +1,31 @@
+<div
+  class="row justify-content-around"
+  [style]="{
+    'background-image': 'url(/assets/Code-Banner.jpg)',
+    'background-size': 'cover'
+  }"
+>
+  <cu-home
+    class="col-auto"
+    [imgSrc]="imageSource"
+    [repoData]="repoData"
+    [userData]="userData"
+  ></cu-home>
+
+  <!-- <div class="col-md-3 col-sm- ml-auto">
+    <div class="row">
+      <label>Repos</label>
+      <ul class="list-group col">
+        <li class="list-group-item" *ngFor="let repo of repoData">
+          <a (click)="getProjectData(repo['name'])">{{ repo["name"] }}</a>
+        </li>
+      </ul>
+      <label>users</label>
+      <ul class="list-group col">
+        <li class="list-group-item" *ngFor="let user of userData">
+          {{ user["login"] }}
+        </li>
+      </ul>
+    </div>
+  </div> -->
+</div>

@@ -1,0 +1,116 @@
+<div class="row">
+  <img class="col-12" src="/assets/contact-us-banner.jpg" alt="Contact Us" />
+  <div class="row justify-content-around">
+    <div class="col-lg-6 col-md-9">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="form-group">
+            <label class="p-text" for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              placeholder="contact name"
+              maxlength="50"
+              [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+              pInputText
+            />
+            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+              <span *ngIf="f['name'].errors['required']">
+                Name is required.</span
+              >
+              <span *ngIf="f['name'].errors['maxlength']">
+                Too many characters.</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder="email@ddress.here"
+              [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+              pInputText
+            />
+            <div
+              *ngIf="submitted && f['email'].errors"
+              class="invalid-feedback"
+            >
+              <span *ngIf="f['email'].errors['required']">
+                Email is required.</span
+              >
+              <span *ngIf="f['email'].errors['email']">
+                Invalid email pattern.</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <p-inputMask
+              id="phone"
+              formControlName="phone"
+              mask="(999) 999-9999"
+              placeholder="phone number (xxx) xxx-xxxx"
+              [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }"
+            ></p-inputMask>
+            <div
+              *ngIf="submitted && f['phone'].errors"
+              class="invalid-feedback"
+            >
+              <span *ngIf="f['phone'].errors['required']">
+                Phone is required.</span
+              >
+              <span *ngIf="f['phone'].errors['maxlength']">
+                Too many characters.</span
+              >
+              <span *ngIf="f['phone'].errors['pattern']">
+                Invalid number pattern.</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              formControlName="message"
+              placeholder="place a short message (120 char limit)"
+              maxlength="120"
+              [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"
+              pInputTextarea
+            ></textarea>
+            <div
+              *ngIf="submitted && f['message'].errors"
+              class="invalid-feedback"
+            >
+              <span *ngIf="f['message'].errors['required']">
+                Message is required.</span
+              >
+              <span *ngIf="f['message'].errors['maxlength']">
+                Too many characters.</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button
+            pButton
+            [disabled]="loading"
+            type="submit"
+            class="p-button-raised p-button-rounded"
+          >
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-1"
+            ></span>
+            Send<a id="zap"></a>
+          </button>
+          <a routerLink="/" class="btn btn-link">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div></div>
+</div>

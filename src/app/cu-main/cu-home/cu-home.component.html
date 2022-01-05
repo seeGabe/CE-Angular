@@ -1,0 +1,50 @@
+<div class="row justify-content-around mt-5 mb-5">
+  <p-card
+    header="Crestron"
+    subheader="Github Projects"
+    [style]="{ width: '360px' }"
+    styleClass="p-card-shadow"
+  >
+    <ng-template pTemplate="header">
+      <img
+        alt="Card"
+        src="{{ imgSrc }}"
+        [style]="{ width: 'unset', float: 'left', margin: '0 1rem' }"
+      />
+    </ng-template>
+    <p>
+      This is a test project which showcases the publicly accessible code
+      repository data hosted on GitHub by Crestron. <br />Exploring this site
+      will highlight the contributors and project metrics through the use of
+      dynamically populated graphs and tables.
+    </p>
+    <ng-template pTemplate="footer">
+      <div class="row justify-content-center">
+        <p-button
+          label="Members"
+          class="col-auto"
+          styleClass="p-button-primary p-button-raised p-button-rounded"
+          icon="pi pi-users"
+          (onClick)="showDialog('users')"
+        ></p-button>
+        <p-button
+          label="Projects"
+          icon="pi pi-database"
+          class="col-auto"
+          styleClass="p-button-secondary p-button-raised p-button-rounded"
+          [style]="{ 'margin-left': '1rem' }"
+          (onClick)="showDialog('code')"
+        ></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
+<p-dialog position="right" [header]="dialogTitle" [(visible)]="display">
+  <!-- {{ dialogBody }} -->
+  <div [innerHtml]="dialogBody"></div>
+  <!-- <ul class="list-group col">
+    <li class="list-group-item" *ngFor="let user of userData">
+      {{ user["login"] }}
+    </li>
+  </ul> -->
+</p-dialog>
